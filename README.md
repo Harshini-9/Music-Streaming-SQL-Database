@@ -131,8 +131,7 @@ JOIN albums al ON t.album_id = al.album_id
 JOIN artists ar ON al.artist_id = ar.artist_id
 WHERE u.username = 'musicfan1'
 ORDER BY lh.listened_at DESC
-LIMIT 10;
-```
+LIMIT 10;```
 Insight: View recent engagement for personalization or user-specific dashboard.
 
 3.  Most Followed Artists 
