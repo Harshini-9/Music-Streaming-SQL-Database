@@ -82,7 +82,7 @@ CREATE TABLE listening_history (
     listened_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Subscriptions (optional)
+-- Subscriptions 
 CREATE TABLE subscriptions (
     subscription_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id),
