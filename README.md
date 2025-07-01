@@ -17,14 +17,105 @@ This project is a fully normalized SQL database design for a Music Streaming Pla
 8. DBML schema file and ER diagram image included
 # How to use project locally
 1. Clone the repo:
-   ```
-clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
-cd Music-Streaming-SQL-Database
-```
+   ```clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
+      cd Music-Streaming-SQL-Database```
 2. Load the schema:
 - Use DBeaver, pgAdmin, or any SQL tool
 - Open and run schema/create_tables.sql
 - Run queries from queries/insights.sql for reports
+# Entity-Relationship Diagram 
+The following ER diagram illustrates the normalized data model for the Music Streaming SQL Database, supporting features like user listening behavior, artist followership, playlist management, and subscription tracking.
+<img src="https://github.com/Harshini-9/Music-Streaming-SQL-Database/blob/main/ER_Diagram/ER_Music_Streaming_DB.jpg" alt="Logo" width="150">
+Key Entities & Relationships Explained
+1. Users
+Stores user profiles including username, email, and account creation timestamp.
+Connected to multiple entities:
+- playlists (1:N) → each user can create many playlists
+- follows (M:N) → users can follow multiple artists
+- listening_history (1:N) → logs each time a user listens to a track
+- subscriptions (1:1) → each user has one active plan at a time
+
+Insights Enabled:
+1. Identify active users
+2. Compare free vs premium adoption
+3. Track loyal followers of specific artists
+
+2. Artists
+Represents musicians and creators in the platform.
+Related to:
+- albums (1:N) → each artist can have multiple albums
+- follows (M:N) → followed by many users
+
+Insights Enabled:
+1. Discover most-followed artists
+2.  Evaluate artist performance based on play counts
+3.   Regional artist analysis (via country field)
+
+3. Albums
+Groupings of tracks under an artist.
+Related to:
+- tracks (1:N) → each album has many tracks
+
+Insights Enabled:
+1. Top albums by cumulative track plays
+2. Recent album releases per artist
+
+4. Tracks
+Core content unit—songs uploaded to the platform.
+Linked to:
+- albums (N:1) → each track belongs to one album
+- track_genres (M:N) → a track can belong to multiple genres
+- playlist_tracks (M:N) → tracks can exist in many playlists
+- listening_history (1:N) → user interactions are logged
+- play_count → indicates overall popularity
+
+Insights Enabled:
+1. Top 5 most played songs
+2. Listening trends
+3. Playlist contribution analysis
+
+5. Genres
+Defines musical categories (e.g., Rock, Pop).
+Connected via track_genres junction table.
+
+Insights Enabled:
+1. Most dominant genres
+2. Track diversity per genre
+
+6. Playlists
+User-curated collections of tracks.
+Related to:
+- playlist_tracks (M:N) → track entries with position and timestamps
+- users (N:1) → each playlist belongs to a user
+
+Insights Enabled:
+1. Most popular playlists
+2. Average playlist size
+3.  Collaborative playlist usage
+
+7. Track-Genre (track_genres)
+Many-to-many mapping between tracks and genres.
+Purpose: Ensures tracks can have multi-genre support (e.g., Jazz + Blues), aiding in better discovery and filtering.
+
+8. Playlist-Tracks (playlist_tracks)
+Many-to-many mapping with metadata like: position in playlist, added_at timestamp
+Purpose: Enables full playlist UX – ordering, sorting, user timing.
+
+9. Follows
+Tracks user-artist follow relationships.
+Purpose: Enables social signals for recommendation, trend analysis, and artist dashboards.
+
+10. Listening History
+Logs every track a user plays with timestamp.
+Purpose: Vital for insights like:
+Daily/weekly active users, Replays and track loyalty, User taste profiling
+
+11. Subscriptions
+Tracks each user's current plan (Free, Premium, etc.)
+Purpose:
+Billing analytics, Feature gating (e.g., download allowed for Premium only)
+
+Churn detection using end_date
 # queries/insights.sql – Analytical Queries
 1. Top 5 Most Played Tracks (All Time)
    ```bash
