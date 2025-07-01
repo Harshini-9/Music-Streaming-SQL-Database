@@ -113,8 +113,7 @@ Purpose:
 Billing analytics, Feature gating (e.g., download allowed for Premium only), Churn detection using end_date
 # queries/insights.sql – Analytical Queries
 1. Top 5 Most Played Tracks (All Time)
-   ```
-    SELECT t.title AS track_title, a.title AS album_title, ar.name AS artist_name, t.play_count
+   ``` SELECT t.title AS track_title, a.title AS album_title, ar.name AS artist_name, t.play_count
 FROM tracks t
 JOIN albums a ON t.album_id = a.album_id
 JOIN artists ar ON a.artist_id = ar.artist_id
