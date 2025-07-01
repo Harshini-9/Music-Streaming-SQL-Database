@@ -17,21 +17,21 @@ This project is a fully normalized SQL database design for a Music Streaming Pla
 8. DBML schema file and ER diagram image included
 # How to use project locally
 1. Clone the repo:
-'''bash git clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
-cd Music-Streaming-SQL-Database
-'''
-2. Load the schema:
+   ```git clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
+cd Music-Streaming-SQL-Database```
+
+3. Load the schema:
 Use DBeaver, pgAdmin, or any SQL tool
 Open and run schema/create_tables.sql
 Run queries from queries/insights.sql for reports
 # queries/insights.sql – Analytical Queries
 1. Top 5 Most Played Tracks (All Time)
-   '''bash
+   ```bash
     SELECT t.title AS track_title, a.title AS album_title, ar.name AS artist_name, t.play_count
 FROM tracks t
 JOIN albums a ON t.album_id = a.album_id
 JOIN artists ar ON a.artist_id = ar.artist_id
 ORDER BY t.play_count DESC
 LIMIT 5;
-'''
+```
 3. 
