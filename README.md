@@ -69,14 +69,15 @@ Insights Enabled:
 Top 5 most played songs, Listening trends, Playlist contribution analysis
 
 5. Genres
-Defines musical categories (e.g., Rock, Pop).
-Connected via track_genres junction table.
+- Defines musical categories (e.g., Rock, Pop).
+- Connected via track_genres junction table.
 
 Insights Enabled:
 Most dominant genres, Track diversity per genre
 
 6. Playlists
-User-curated collections of tracks.
+- User-curated collections of tracks.
+  
 Related to:
 - playlist_tracks (M:N) → track entries with position and timestamps
 - users (N:1) → each playlist belongs to a user
@@ -85,28 +86,31 @@ Insights Enabled:
 Most popular playlists, Average playlist size, Collaborative playlist usage
 
 7. Track-Genre (track_genres)
-Many-to-many mapping between tracks and genres.
+- Many-to-many mapping between tracks and genres.
+  
 Purpose: Ensures tracks can have multi-genre support (e.g., Jazz + Blues), aiding in better discovery and filtering.
 
 8. Playlist-Tracks (playlist_tracks)
-Many-to-many mapping with metadata like: position in playlist, added_at timestamp
+- Many-to-many mapping with metadata like: position in playlist, added_at timestamp
+  
 Purpose: Enables full playlist UX – ordering, sorting, user timing.
 
 9. Follows
-Tracks user-artist follow relationships.
+- Tracks user-artist follow relationships.
+  
 Purpose: Enables social signals for recommendation, trend analysis, and artist dashboards.
 
 10. Listening History
-Logs every track a user plays with timestamp.
+- Logs every track a user plays with timestamp.
+  
 Purpose: Vital for insights like:
 Daily/weekly active users, Replays and track loyalty, User taste profiling
 
 11. Subscriptions
-Tracks each user's current plan (Free, Premium, etc.)
-Purpose:
-Billing analytics, Feature gating (e.g., download allowed for Premium only)
+- Tracks each user's current plan (Free, Premium)
 
-Churn detection using end_date
+Purpose:
+Billing analytics, Feature gating (e.g., download allowed for Premium only), Churn detection using end_date
 # queries/insights.sql – Analytical Queries
 1. Top 5 Most Played Tracks (All Time)
    ```bash
