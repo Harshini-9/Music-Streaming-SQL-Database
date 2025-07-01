@@ -118,7 +118,8 @@ FROM tracks t
 JOIN albums a ON t.album_id = a.album_id
 JOIN artists ar ON a.artist_id = ar.artist_id
 ORDER BY t.play_count DESC
-LIMIT 5; ```
+LIMIT 5;
+```
 
 Insight: Understand which tracks have been most played historically for royalty distribution or recommendations.
 
@@ -131,7 +132,8 @@ JOIN albums al ON t.album_id = al.album_id
 JOIN artists ar ON al.artist_id = ar.artist_id
 WHERE u.username = 'musicfan1'
 ORDER BY lh.listened_at DESC
-LIMIT 10;```
+LIMIT 10;
+```
 Insight: View recent engagement for personalization or user-specific dashboard.
 
 3.  Most Followed Artists 
@@ -149,7 +151,8 @@ Insight: Identify top artists by follower count to prioritize for homepage visib
 FROM genres g
 JOIN track_genres tg ON g.genre_id = tg.genre_id
 GROUP BY g.genre_id, g.name
-ORDER BY num_tracks DESC;```
+ORDER BY num_tracks DESC;
+```
 Insight: Discover dominant genres in your catalog for genre-based curation or playlist strategy.
 
 5.  Most Popular Albums (by Total Plays)
