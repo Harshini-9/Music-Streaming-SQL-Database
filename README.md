@@ -35,6 +35,7 @@ Connected to multiple entities:
 - follows (M:N) → users can follow multiple artists
 - listening_history (1:N) → logs each time a user listens to a track
 - subscriptions (1:1) → each user has one active plan at a time
+  
 Insights Enabled:
  Identify active users, Compare free vs premium adoption, Track loyal followers of specific artists
 
@@ -51,6 +52,7 @@ Discover most-followed artists, Evaluate artist performance based on play counts
 Groupings of tracks under an artist.
 Related to:
 - tracks (1:N) → each album has many tracks
+  
 Insights Enabled:
  Top albums by cumulative track plays, Recent album releases per artist
 
