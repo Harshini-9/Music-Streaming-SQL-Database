@@ -19,6 +19,7 @@ This project is a fully normalized SQL database design for a Music Streaming Pla
 1. Clone the repo:
   ``` git clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
 cd Music-Streaming-SQL-Database
+cd Music-Streaming-SQL-Database
 ```
 2. Load the schema:
 - Use DBeaver, pgAdmin, or any SQL tool
@@ -35,11 +36,8 @@ Connected to multiple entities:
 - follows (M:N) → users can follow multiple artists
 - listening_history (1:N) → logs each time a user listens to a track
 - subscriptions (1:1) → each user has one active plan at a time
-
 Insights Enabled:
-1. Identify active users
-2. Compare free vs premium adoption
-3. Track loyal followers of specific artists
+ Identify active users, Compare free vs premium adoption, Track loyal followers of specific artists
 
 2. Artists
 Represents musicians and creators in the platform.
@@ -48,18 +46,14 @@ Related to:
 - follows (M:N) → followed by many users
 
 Insights Enabled:
-1. Discover most-followed artists
-2.  Evaluate artist performance based on play counts
-3.   Regional artist analysis (via country field)
+Discover most-followed artists, Evaluate artist performance based on play counts, Regional artist analysis (via country field)
 
 3. Albums
 Groupings of tracks under an artist.
 Related to:
 - tracks (1:N) → each album has many tracks
-
 Insights Enabled:
-1. Top albums by cumulative track plays
-2. Recent album releases per artist
+ Top albums by cumulative track plays, Recent album releases per artist
 
 4. Tracks
 Core content unit—songs uploaded to the platform.
@@ -71,17 +65,14 @@ Linked to:
 - play_count → indicates overall popularity
 
 Insights Enabled:
-1. Top 5 most played songs
-2. Listening trends
-3. Playlist contribution analysis
+Top 5 most played songs, Listening trends, Playlist contribution analysis
 
 5. Genres
 Defines musical categories (e.g., Rock, Pop).
 Connected via track_genres junction table.
 
 Insights Enabled:
-1. Most dominant genres
-2. Track diversity per genre
+Most dominant genres, Track diversity per genre
 
 6. Playlists
 User-curated collections of tracks.
@@ -90,9 +81,7 @@ Related to:
 - users (N:1) → each playlist belongs to a user
 
 Insights Enabled:
-1. Most popular playlists
-2. Average playlist size
-3.  Collaborative playlist usage
+1. Most popular playlists, Average playlist size, Collaborative playlist usage
 
 7. Track-Genre (track_genres)
 Many-to-many mapping between tracks and genres.
