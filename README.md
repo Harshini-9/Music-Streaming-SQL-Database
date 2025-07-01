@@ -17,8 +17,7 @@ This project is a fully normalized SQL database design for a Music Streaming Pla
 8. DBML schema file and ER diagram image included
 # How to use project locally
 1. Clone the repo:
-  ``` git clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
-cd Music-Streaming-SQL-Database
+  ```  clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
 cd Music-Streaming-SQL-Database
 ```
 2. Load the schema:
@@ -81,7 +80,7 @@ Related to:
 - users (N:1) → each playlist belongs to a user
 
 Insights Enabled:
-1. Most popular playlists, Average playlist size, Collaborative playlist usage
+Most popular playlists, Average playlist size, Collaborative playlist usage
 
 7. Track-Genre (track_genres)
 Many-to-many mapping between tracks and genres.
