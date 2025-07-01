@@ -1,0 +1,80 @@
+Table users {
+  user_id SERIAL [pk]
+  username VARCHAR(50) [not null, unique]
+  email VARCHAR(100) [not null, unique]
+  password_hash VARCHAR(255) [not null]
+  created_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table artists {
+  artist_id SERIAL [pk]
+  name VARCHAR(100) [not null]
+  bio TEXT
+  country VARCHAR(50)
+}
+
+Table albums {
+  album_id SERIAL [pk]
+  artist_id INTEGER [ref: > artists.artist_id]
+  title VARCHAR(100) [not null]
+  release_date DATE
+  cover_url VARCHAR(255)
+}
+
+Table tracks {
+  track_id SERIAL [pk]
+  album_id INTEGER [ref: > albums.album_id]
+  title VARCHAR(100) [not null]
+  duration INTEGER
+  track_number INTEGER
+  audio_url VARCHAR(255)
+  play_count INTEGER [default: `0`]
+}
+
+Table genres {
+  genre_id SERIAL [pk]
+  name VARCHAR(50) [not null, unique]
+}
+
+Table track_genres {
+  track_id INTEGER [ref: > tracks.track_id, pk]
+  genre_id INTEGER [ref: > genres.genre_id, pk]
+  Note: "Many-to-many between tracks and genres"
+}
+
+Table playlists {
+  playlist_id SERIAL [pk]
+  user_id INTEGER [ref: > users.user_id]
+  name VARCHAR(100) [not null]
+  is_collaborative BOOLEAN [default: `FALSE`]
+  created_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table playlist_tracks {
+  playlist_id INTEGER [ref: > playlists.playlist_id, pk]
+  track_id INTEGER [ref: > tracks.track_id, pk]
+  position INTEGER
+  added_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  Note: "Many-to-many between playlists and tracks"
+}
+
+Table follows {
+  user_id INTEGER [ref: > users.user_id, pk]
+  artist_id INTEGER [ref: > artists.artist_id, pk]
+  followed_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table listening_history {
+  history_id SERIAL [pk]
+  user_id INTEGER [ref: > users.user_id]
+  track_id INTEGER [ref: > tracks.track_id]
+  listened_at TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table subscriptions {
+  subscription_id SERIAL [pk]
+  user_id INTEGER [ref: > users.user_id]
+  plan VARCHAR(50) [not null]
+  start_date DATE [not null]
+  end_date DATE
+}
