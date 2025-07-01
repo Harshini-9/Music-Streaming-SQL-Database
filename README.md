@@ -17,15 +17,16 @@ This project is a fully normalized SQL database design for a Music Streaming Pla
 8. DBML schema file and ER diagram image included
 # How to use project locally
 1. Clone the repo:
-   ```clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
-      cd Music-Streaming-SQL-Database```
+  ``` git clone https://github.com/Harshini-9/Music-Streaming-SQL-Database.git
+cd Music-Streaming-SQL-Database
+```
 2. Load the schema:
 - Use DBeaver, pgAdmin, or any SQL tool
 - Open and run schema/create_tables.sql
 - Run queries from queries/insights.sql for reports
 # Entity-Relationship Diagram 
 The following ER diagram illustrates the normalized data model for the Music Streaming SQL Database, supporting features like user listening behavior, artist followership, playlist management, and subscription tracking.
-<img src="https://github.com/Harshini-9/Music-Streaming-SQL-Database/blob/main/ER_Diagram/ER_Music_Streaming_DB.jpg" alt="Logo" width="150">
+![ERD](https://github.com/Harshini-9/Music-Streaming-SQL-Database/blob/main/ER_Diagram/ER_Music_Streaming_DB.jpg)
 Key Entities & Relationships Explained
 1. Users
 Stores user profiles including username, email, and account creation timestamp.
